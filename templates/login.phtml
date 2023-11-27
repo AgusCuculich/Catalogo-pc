@@ -1,0 +1,20 @@
+<?php require 'templates/header.phtml' ?>
+
+    <main class="centeredMain">
+        <div class="contenedorForm">
+            <form id="login" method="POST" action="auth">
+                <label for="username"></label>
+                <input required type="text" name="username" placeholder="Usuario"/>
+                <label for="password"></label>
+                <input required type="password" name="password" placeholder="Contraseña"/>
+                <button type="submit">Ingresar</button>
+                <?php if ($error) : ?>
+                    <div class="errorAlert">
+                        <?= $error ?>
+                    </div>
+                <?php endif ?>
+            </form>
+        </div>
+    </main>
+
+<?php require 'templates/footer.phtml'; ?>

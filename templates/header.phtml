@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <base href="<?= BASE_URL ?>"/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+<body>
+    <div class="pageContainer">
+    <header>
+        <ul class="nav">
+
+            <li><a href="home">Inicio</a></li>
+
+            <div class="userContent">
+                <?php if(!empty($this->userName)) : ?>
+                    <li class="login" id="userName"><?= $this->userName;  ?></li>
+
+                        <ul class="userOptions ocultar">
+                            <?php if ($this->isAdmin) : ?>
+                                <li><a href="agregar">Agregar item</a></li>
+                            <?php endif ?>
+                            <li class="login"><a href="logout">Logout</a></li>
+                        </ul>
+
+                <?php else : ?>
+                    <li class="login"><a href="login">Login</a></li>
+                <?php endif;  ?>
+            </div>
+        </ul>
+    </header>

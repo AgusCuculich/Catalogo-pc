@@ -1,0 +1,38 @@
+<?php require 'templates/header.phtml'; ?>
+
+    <main class="centeredMain">
+        <div class="contenedorForm">
+            <form id="itemForm" method="POST" action="procesar_agregar">
+                <label for="name"></label>
+                <input  type="text" name="name" placeholder="Nombre"/>
+                <label for="cpu"></label>
+                <input  type="text" name="cpu" placeholder="Procesador"/>
+                <label for="gpu"></label>
+                <input  type="text" name="gpu" placeholder="Tarjeta grafica"/>
+                <label for="motherboard"></label>
+                <input  type="text" name="motherboard" placeholder="Placa base"/>
+                <label for="storage"></label>
+                <input  type="text" name="storage" placeholder="Almacenamiento"/>
+                <label for="ram"></label>
+                <input  type="number" name="ram" placeholder="Ram"/>
+
+                <label for="category">Categoria</label>
+                <select required name="category">
+                    <?php foreach ($categories as $category) : ?>
+                        <option value="<?= $category->id_categoria?>">Gama <?= $category->gama ?></option>
+                    <?php endforeach ?>
+                </select>
+
+                <label for="img"></label>
+                <input  type="text" name="img" placeholder="Imagen url"/>
+                <button type="submit">Cargar datos</button>
+                <?php if ($error) : ?>
+                    <div class="errorAlert">
+                        <?= $error ?>
+                    </div>
+                <?php endif ?>
+            </form>
+        </div>
+    </main>
+
+<?php require 'templates/footer.phtml'; ?>

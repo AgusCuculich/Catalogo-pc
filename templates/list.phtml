@@ -1,0 +1,29 @@
+<?php require 'templates/header.phtml'; ?>
+
+
+    <main class="mainHome">
+        <ul class="listaItems">
+            <?php foreach ($items as $item) : 
+                $name = $item->nombre;
+                $image_url = $item->imagen;
+                $id = $item->id;
+                $url = "modelo/" . $id;
+                $category = $item->gama; ?>
+                    <li>
+                        <h2><a href="<?= $url ?>"><?= $name ?></a></h2>
+                        <img class="fotoPc" src="<?= $image_url ?>"/>
+                        <div class="itemFooter">
+                            <p><?="Gama " . $category?></p>
+                            <?php if ($this->isAdmin): ?>
+                                <div class="edicion">
+                                    <p><a href="eliminar/<?=$id?>">Eliminar</a></p>
+                                    <p><a href="editar/<?=$id?>">Editar</a></p>
+                                </div>
+                            <?php endif ?>
+                        </div>
+                    </li> 
+            <?php endforeach ?>
+        </ul>
+    </main>
+
+<?php require 'templates/footer.phtml'; ?>

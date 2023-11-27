@@ -1,0 +1,20 @@
+<?php require 'templates/header.phtml'; ?>
+
+    <main class="centeredMain">
+        <div class="singleItem">
+
+            <img class="fotoPcGrande" src="<?= $item->imagen ?>"/>
+            <div class="especificacionesPc">
+                <h1><?= $item->nombre; ?></h1>
+                <p><?= $item->procesador ?></p>
+                <p><?= $item->grafica ?></p>
+                <p><?= $item->mother ?></p>
+                <p><?= $item->disco ?></p>
+                <p><?= $item->ram ?>GB</p>
+                <p><?="Gama " . $item->gama ?></p>
+            </div>
+
+        </div>
+    </main>
+
+<?php require 'templates/footer.phtml'; ?>

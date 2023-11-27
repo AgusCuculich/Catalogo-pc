@@ -1,0 +1,42 @@
+<?php require 'templates/header.phtml'; ?>
+
+    <main class="centeredMain">
+        <div class="contenedorForm">
+            <form id="itemForm" method="POST" action="procesar_editar/<?=$id?>">
+                <label for="name">Nombre</label>
+                <input  type="text" name="name" placeholder="Nombre" value="<?= $name ?>"/>
+                <label for="cpu">Procesador</label>
+                <input  type="text" name="cpu" placeholder="Procesador" value="<?= $cpu ?>"/>
+                <label for="gpu">Tarjeta grafica</label>
+                <input  type="text" name="gpu" placeholder="Tarjeta grafica" value="<?= $gpu ?>"/>
+                <label for="motherboard">Placa base</label>
+                <input  type="text" name="motherboard" placeholder="Placa base" value="<?= $motherboard ?>"/>
+                <label for="storage">Almacenamiento</label>
+                <input  type="text" name="storage" placeholder="Almacenamiento" value="<?= $storage ?>"/>
+                <label for="ram">Ram</label>
+                <input  type="number" name="ram" placeholder="Ram" value="<?= $ram ?>"/>
+                
+                <label for="category">Categoria</label>
+                <select required name="category">
+                    <?php foreach ($categories as $category) : ?>
+                        <?php if ($category->id_categoria == $selectedCategory) : ?>
+                            <option value="<?= $category->id_categoria ?>" selected>Gama <?= $category->gama ?></option>
+                        <?php else : ?>
+                            <option value="<?= $category->id_categoria?>">Gama <?= $category->gama ?></option>
+                        <?php endif ?>
+                    <?php endforeach ?>
+                </select>
+
+                <label for="img">Imagen url</label>
+                <input type="text" name="img" placeholder="Imagen url" value="<?= $image?>"/>
+                <button type="submit">Cargar datos</button>
+                <?php if ($error) : ?>
+                    <div class="errorAlert">
+                        <?= $error ?>
+                    </div>
+                <?php endif ?>
+            </form>
+        </div>
+    </main>
+
+<?php require 'templates/footer.phtml'; ?>
